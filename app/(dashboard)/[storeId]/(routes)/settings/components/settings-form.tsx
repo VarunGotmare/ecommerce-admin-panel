@@ -8,9 +8,9 @@ import {  useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import { useParams,useRouter } from "next/navigation";
-import {Toaster, toast} from "react-hot-toast";
+import { toast} from "react-hot-toast";
 
-import { Heading } from "./heading";
+import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -68,8 +68,8 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         try{
             setLoading(true);
             await axios.delete(`/api/stores/${params.storeId}`);
-            // router.refresh();
-            router.push("/");
+            router.refresh();
+            router.push(`/${params.storeId}/billboards`);
             toast.success("Store deleted");
         }catch(error){
             toast.error("Make sure you remove all products and categories first.");
