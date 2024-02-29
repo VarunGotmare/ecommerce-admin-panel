@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { Toaster } from "react-hot-toast";
 
 export default async function Dashboard({
     children,
@@ -25,6 +26,7 @@ export default async function Dashboard({
     }
     return (
         <>
+            <Toaster />
             <Navbar />
             {children}
         </>
