@@ -26,12 +26,12 @@ export const CellAction: React.FC<CellActionProps> = ({
     const onDelete = async () => {
         try{
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/products/${data.id}`);
             router.refresh();
-            router.push(`/${params.storeId}/billboards`)
-            toast.success("Billboard deleted");
+            router.push(`/${params.storeId}/products`)
+            toast.success("Product deleted");
         }catch(error){
-            toast.error("Make sure you remove all products and categories first.");
+            toast.error("Something went wrong.");
         
         }finally{
             setLoading(false);
@@ -52,7 +52,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                 <DropdownMenuLabel>
                     Actions
                 </DropdownMenuLabel>
-                <DropdownMenuItem onClick={()=> router.push(`/${params.storeId}/billboards/${data.id}`)}>
+                <DropdownMenuItem onClick={()=> router.push(`/${params.storeId}/products/${data.id}`)}>
                     <Edit className="h-4 w-4 mr-2"/>
                     Update
                 </DropdownMenuItem>

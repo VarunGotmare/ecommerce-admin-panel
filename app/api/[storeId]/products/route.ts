@@ -15,7 +15,7 @@ export async function POST(
             colorId,
             sizeId,
             images,
-            isFeatures,
+            isFeatured,
             isArchived
          } = body;
         
@@ -23,24 +23,24 @@ export async function POST(
             return new NextResponse("Unauthenticated", {status: 401});
         }
         //perform checks for all inputs from body
-        if(!name){
-            return new NextResponse("Name is required", {status: 400});
-        }
-        if(!price){
-            return new NextResponse("Price is required", {status: 400});
-        }
-        if(!categoryId){
-            return new NextResponse("Category ID is required", {status: 400});
-        }
-        if(!colorId){
-            return new NextResponse("Color ID is required", {status: 400});
-        }
-        if(!sizeId){
-            return new NextResponse("Size ID is required", {status: 400});
-        }
-        if(!images || !images.length ){
-            return new NextResponse("Images are required", {status: 400});
-        }
+            if(!name){
+                return new NextResponse("Name is required", {status: 400});
+            }
+            if(!price){
+                return new NextResponse("Price is required", {status: 400});
+            }
+            if(!categoryId){
+                return new NextResponse("Category ID is required", {status: 400});
+            }
+            if(!colorId){
+                return new NextResponse("Color ID is required", {status: 400});
+            }
+            if(!sizeId){
+                return new NextResponse("Size ID is required", {status: 400});
+            }
+            if(!images || !images.length ){
+                return new NextResponse("Images are required", {status: 400});
+            }
         if(!params.storeId){
             return new NextResponse("Store ID is required", {status: 400});
         }
@@ -67,7 +67,10 @@ export async function POST(
                         ]
                     }
                 },
-                storeId: params.storeId
+                storeId: params.storeId,
+                isFeatured,
+                isArchived
+
             }
         });
         return  NextResponse.json(product);

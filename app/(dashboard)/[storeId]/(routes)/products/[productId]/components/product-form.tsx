@@ -63,7 +63,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
     const title = initialData? "Edit Product" : "Create Product";
     const description = initialData? "Edit a product" : "Add a product";
-    const toastMessage = initialData? "Product updated" : "Successfully created a product";
+    const toastMessage = initialData? "Product updated" : "Successfully created a product.";
     const action = initialData? "Save changes" : "Create";
 
     const form = useForm<ProductFormValues>({
@@ -142,7 +142,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     </div>
     <Separator />
     <Form {...form} >
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full ">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
         <FormField
             control={form.control}
             name="images"

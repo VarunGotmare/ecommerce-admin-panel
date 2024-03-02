@@ -137,11 +137,11 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                     name="billboardId"
                     render={({field}) => (
                         <FormItem>
-                            <FormLabel>Category name</FormLabel>
+                            <FormLabel>Billboard</FormLabel>
                             <Select defaultValue={field.value} disabled={loading} onValueChange={field.onChange} value={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
-                                        <SelectValue defaultValue={field.value} placeholder="Select a category"/>
+                                        <SelectValue defaultValue={field.value} placeholder="Select a billboard"/>
                                     </SelectTrigger>
                                 </FormControl>
                                     <SelectContent>
